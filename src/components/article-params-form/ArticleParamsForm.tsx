@@ -18,6 +18,7 @@ import { Select } from 'src/ui/select';
 import { Separator } from 'src/ui/separator';
 import { Text } from 'src/ui/text';
 import { RadioGroup } from 'src/ui/radio-group';
+import { useMisclick } from '../hooks/useMisclick';
 
 type ArticleState = {
 	articleState: ArticleStateType;
@@ -39,6 +40,14 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 		setIsOpenSidebar(isOpenSidebar ? false : true);
 	};
 
+	const rootRef = useRef<HTMLDivElement>(null);
+
+	useMisclick({
+		isOpen: isOpenSidebar,
+		setClose: () => setIsOpenSidebar(false),
+		root: rootRef,
+	});
+
 	// Логика состояния селектов
 
 	const [stateSelectCurrent, setStateSelectCurrent] = useState<ArticleStateType>(articleState);
@@ -47,9 +56,6 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 		setStateSelectCurrent({ ...stateSelectCurrent, [key]: value })
 	};
 	
-
-	const rootRef = useRef<HTMLDivElement>(null);
-
 	const resetForm = () => {
 		setStateSelectCurrent(defaultArticleState);
 		setArticleState(defaultArticleState);
@@ -68,7 +74,8 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 				}}>
 
 					<Text size={31} weight={800} uppercase>Задайте параметры</Text>
-
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
+					
 					<Select
 						selected={stateSelectCurrent.fontFamilyOption}
 						options={fontFamilyOptions}
@@ -78,13 +85,15 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 						}>
 						
 					</Select>
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
+
 
 					<RadioGroup name={"font-size-setting"} options={fontSizeOptions} selected={stateSelectCurrent.fontSizeOption}
 					onChange={(option) =>
 						handleSetStateSelect('fontSizeOption', option)
 					} title='размер шрифта'/>
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
 
-					<Separator/>
 
 					<Select
 						selected={stateSelectCurrent.fontColor}
@@ -95,6 +104,10 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 						}>
 					
 					</Select>
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
+					<Separator height={'1px'} width={'100%'} color={'#D7D7D7'}/>
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
+
 
 					<Select
 						selected={stateSelectCurrent.backgroundColor}
@@ -105,6 +118,8 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 						}>
 					
 					</Select>
+					<Separator height={'50px'} width={'100%'} color={'transparent'}/>
+
 
 					<Select
 						selected={stateSelectCurrent.contentWidth}
@@ -115,6 +130,8 @@ export const ArticleParamsForm = ({articleState, setArticleState}: ArticleState)
 						}>
 					
 					</Select>
+					<Separator height={'207px'} width={'100%'} color={'transparent'}/>
+
 
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' onClick={resetForm} />
