@@ -41,7 +41,7 @@ export const Option = (props: OptionProps) => {
 			data-testid={`select-option-${value}`}
 			ref={optionRef}>
 			<Text family={isFontFamilyClass(className) ? className : undefined}>
-				{title} erefdsfdsrere
+				{title}
 			</Text>
 		</li>
 	);
