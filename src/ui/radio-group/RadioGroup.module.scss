@@ -30,6 +30,10 @@
 	text-align: center;
 	border-right: 1px solid #000000;
 	cursor: pointer;
+
+	@media (max-width: 991px) {
+		width: 80px;
+	}
 }
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
