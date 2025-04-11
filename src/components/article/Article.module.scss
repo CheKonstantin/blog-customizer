@@ -6,7 +6,11 @@
 	row-gap: 24px;
 	max-width: var(--container-width, auto);
 	margin: 0 auto;
-	padding: 72px 0 144px;
+	padding: 72px 20px 144px;
+
+	@media(max-width: 991px) {
+		padding: 0 10px;
+	}
 }
 
 .titleDescription {
