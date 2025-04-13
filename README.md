@@ -1,5 +1,5 @@
 
-# Проектная работа "Кастомизируемый блог" в рамках курса Яндекс.Практикум.
+# Проектная работа "Кастомизируемый блог" в рамках курса от Яндекс.Практикум.
 
 <img src="https://github.com/user-attachments/assets/823a094f-aa14-4085-bf0e-0837b7064986" height="200px" width="auto"/>
 <img src="https://github.com/user-attachments/assets/d16a42dd-f312-415c-a8ff-9690a931fa48" height="200px" width="auto"/>
